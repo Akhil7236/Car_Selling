@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/logo.png" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="stylesheet/login.css"> -->
+    <title>Login</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }
+        body {
+            /* background:linear-gradient(45deg,#939aa8,#dadce1); */
+            background-color: #878f9e;
+        }
+        .navbar {
+            background-color: #717a8c;
+            box-shadow: 0px 4px 6px #5e6573;
+        }
+        .navbar img {
+            width: 45px;
+            position: relative;
+            top: 10px;
+            margin-left: 15px;
+        }
+        .ulClass {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            position: relative;
+            bottom: 23px;
+            left: 84px;
+            margin-right: 150px;
+            padding-right: 120px;
+        }
+        .navbar ul li a {
+            color: #e6e8eb;
+            padding: 6px;
+            margin: 8px;
+            border-radius: 5px;
+            text-decoration: none;
+            
+        }
+        .mark{
+            position: absolute;
+        right: -32px;
+        font-size: 29px;
+        color: #55D7B3;
+        margin: -9px;
+        animation: animate 2s infinite;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        @keyframes animate{
+            from {
+                margin-right: 30%;
+                width: 300%;
+              }
+            
+              to {
+                margin-right:0%;
+              }
+        }
+        a:hover {
+            background-color: #5e6573;
+        }
+        
+        .container{
+            /* width: 100%;
+            min-height: 100vh;
+            background:linear-gradient(45deg,red,white); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding:6% 5% 13%;
+            color: #e6e8eb;
+        }
+        .login_box{
+            background-color: #717a8c;
+            flex-wrap: wrap;
+            padding: 30px 50px 63px 50px;
+            box-shadow: 0px 4px 6px #5e6573;
+        }
+        .anchor{
+            color: #ffffff;
+        }
+        .col_2{
+            /* background-color: rgb(158, 196, 235); */
+            min-width: 200px;
+        }
+        .col_2 h2{
+            font-weight: 600;
+            margin: 10px 0px;
+        }
+        .col_2 span{
+            font-size: 14px;
+            margin: 10px 0px;
+        }
+        form , label, input{
+            margin: 10px 0;
+        }
+        .google-link{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            border: 1px solid rgb(240, 8, 8);   /*create border around tittle and firfoxpng*/
+            text-decoration: none; /*removing underline  title*/
+            font-size:14px ;
+            margin: 16px;
+        }
+        .google-link img{
+            width: 20px;
+        }
+        .col_2 h4{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .inputfield{
+            padding: 5px 1px;
+            border-radius: 4px;
+            border: 1px solid rgb(240, 8, 8); 
+            display: block;
+            width: 100%;
+        }
+        form label{
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .chechbox{
+            position: relative;
+            top: 1rem;
+        }
+        
+        .button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7px;
+            border-radius: 4px;
+            border: 1px solid rgb(240, 8, 8); 
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            background: rgb(240, 8, 8);
+            cursor: pointer;
+        }
+        .loginFaild{
+            color: rgb(253 23 23);
+            font-weight: 100;
+            font-size: 12px;
+            
+        }
+        
+        @media only screen and (max-width:600px) {
+            .mark {
+                display: none;
+            }
+            .container{
+                padding:16% 5% 35%;
+            }
+        }</style>
+</head>
+<body>
+    <div class="container">
+        <div class="login_box">
+            <!-- <div class="col_1">
+                <img src="editig 4.jpg" alt="">
+            </div> -->
+            <div class="col_2">
+                <h2>Car Sell </h2>
+                <span>Are you new on page <a href="/signup" class="anchor">Signup</a> </span>
+                <!-- <a href="" class="google-link">
+                    <img src="firefox.png.png" alt=""> Continue with Firefox
+                </a>
+                <h4>Or</h4> -->
+                <form action="/login" method="POST" onsubmit="submitForm(event)">
+                    <input type="hidden" value="login_code" name="login_code">
+                    <label for="">Email Addres</label>
+                    <input type="email"  placeholder="Enter Your Email Addres" id="username" name="username" class="inputfield" required>
+                    <label for="">Passward</label>
+                    <input type="password"  placeholder="Enter Passwor" id="password" name="password" class="inputfield" required>
+                    <div class="chechbox">
+                        <input type="checkbox" name="" id="" required>
+                        <span>I agree with all <a href="">Term and Condition</a> </span>
+                       <input type="submit" name="login" value="Login" class="button">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function submitForm(event) {
+      event.preventDefault();
+
+      const formData = {
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value,
+      };
+console.log(formData.password);
+      fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      .then(response => response.text())
+      .then(data => {
+        console.log(data);
+        alert(data);
+      })
+      .catch(error => {
+        console.error('Error submitting form:', error);
+        alert('An error occurred. Please try again.');
+      });
+    }
+  </script>
+</html>
+

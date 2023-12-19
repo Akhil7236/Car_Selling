@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="shortcut icon" href="image/logo.png" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="signup.css"> -->
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body {
+          font-family: 'Arial', sans-serif;
+          margin: 0;
+          padding: 0;
+      }
+      
+      .con {
+          background-color: #f4f4f4;
+          padding: 20px;
+          max-width: 600px;
+          margin: 50px auto;
+      }
+      
+      form {
+          display: flex;
+          flex-direction: column;
+      }
+      
+      .col-common {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 15px;
+      }
+      
+      .row-1,
+      .row-2,
+      .row-4 {
+          flex: 1;
+      }
+      
+      label {
+          margin-bottom: 8px;
+      }
+      
+      input {
+          padding: 10px;
+          margin-bottom: 10px;
+          width: 100%;
+          box-sizing: border-box;
+      }
+      
+      #submit {
+          background-color: #333;
+          color: #fff;
+          padding: 10px;
+          cursor: pointer;
+          width: 100%;
+          box-sizing: border-box;
+      }
+      
+      #submit:hover {
+          background-color: #555;
+      }
+      
+      @media screen and (min-width: 768px) {
+          form {
+              flex-direction: row;
+          }
+      
+          .row-1,
+          .row-2,
+          .row-4 {
+              margin-right: 15px;
+          }
+      
+          #submit {
+              width: auto;
+          }
+      }
+      
+          </style>
+
+
+</head>
+
+<body>
+    <div class="con">
+        <form action="/signup" method="post" onsubmit="submitForm(event)">
+            <div class="con-1">
+                <h2>Please Register yourself</h2>
+                <div class="row-1 col-common">
+                    <label for="">First Name <input type="text" placeholder="Enter Your Name" id="name" name="name"
+                        required></label>
+                    <label for="">Last Name <input type="text" placeholder="Enter Your Name" id="lastName" name="lastName" 
+                           required></label>
+                </div>
+                <div class="row-2 col-common">
+                    <label for="">Email <input type="text" placeholder="Enter Your Email" id="email" name="email"
+                        required></label>
+                </div>
+                <div class="row-4 col-common">
+                    <label for="" class="for-M-left">Password <input type="password" placeholder="Enter Your Password"
+                        id="password" name="password" required></label>
+                    <label for="">Confirm Password <input type="password" placeholder="Enter Your Cofirm Password"
+                        id="conPasswor" name="cpassword" required></label>
+                </div>
+                <input type="submit" value="Submit" id="submit">
+            </div>
+        </form>
+    </div>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+            };
+
+            fetch('/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    alert('Form submitted successfully!');
+                })
+                .catch(error => {
+                    console.error('Error submitting form:', error);
+                    alert('An error occurred. Please try again.');
+                });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="stylesheet/home.css"> -->
+    <title>Home</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.mainCon {
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em 9em;
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.subCon {
+    padding: 40px 0;
+}
+
+.subCon2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em 9em;
+}
+
+.col1 {
+    flex: 1;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carImage img {
+    width: 80%;
+    height: auto;
+}
+
+.col2 {
+    flex: 2;
+    padding: 0 20px;
+}
+
+.space {
+    margin-bottom: 20px;
+}
+
+.summary p {
+    font-size: 1.1em;
+}
+
+.bottom b {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="mainCon">
+        <div class="navbar">
+            <div class="nav">
+                <ul>
+                    <li><a href="/login">SignIn</a></li>
+                    <li><a href="/signup">SignUp</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="subCon">
+            <div class="subCon2">
+                <div class="col1">
+                    <div class="circle">
+                        <div class="carImage">
+                            <img src="car.png" alt="human error"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col2">
+                    <h3 class="space">ABOUT US</h3>
+                    <h1 class="space">World Largest Car Dealer Marketplace</h1>
+                    <div class="summary space">
+                        <p>Our experienced team is committed to ensuring a seamless and enjoyable car-buying experience
+                            for our customers. Whether you're in the market for a reliable used car or the latest models
+                        </p>
+                    </div>
+                    <div class="bottom space">
+                        <div class="firstLine"><b>We pride ourselves on transparency</b></div>
+                        <div class="secondLine"><b>We pride ourselves on integrity, and customer satisfaction</b></div>
+                        <div class="thirdLine"><b>We pride ourselves on making us a preferred choice</b></div>
+                    </div>
+                    <div class="btn space"><h4>Discover More -></h4></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

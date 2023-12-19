@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Buying Details Form</title>
+  <!-- <link rel="stylesheet" href="form.css"> -->
+  <style>
+    body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  form {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+
+  button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+  </style>
+</head>
+<body>
+  <form action="/submit" method="POST" onsubmit="submitForm(event)">
+    <label for="carCondition">Car Condition:</label>
+    <select id="carCondition" name="carCondition" required>
+      <option value="new">New</option>
+      <option value="used">Used</option>
+    </select>
+
+    <label for="brandName">Brand Name:</label>
+    <input type="text" id="brandName" name="brandName" required>
+
+    <label for="carModel">Car Model:</label>
+    <input type="text" id="carModel" name="carModel" required>
+
+    <label for="chooseYear">Choose Year:</label>
+    <input type="number" id="chooseYear" name="chooseYear" min="1900" max="2023" required>
+
+    <label for="priceRange">Price Range:</label>
+    <input type="text" id="priceRange" name="priceRange" required>
+
+    <label for="bodyType">Body Type:</label>
+    <select id="bodyType" name="bodyType" required>
+      <option value="sedan">Sedan</option>
+      <option value="suv">SUV</option>
+      <option value="truck">Truck</option>
+      <option value="hatchback">Hatchback</option>
+      <!-- Add more body type options as needed -->
+    </select>
+
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+
+      const formData = {
+        carCondition: document.getElementById('carCondition').value,
+        brandName: document.getElementById('brandName').value,
+        carModel: document.getElementById('carModel').value,
+        chooseYear: document.getElementById('chooseYear').value,
+        priceRange: document.getElementById('priceRange').value,
+        bodyType: document.getElementById('bodyType').value,
+      };
+
+      fetch('/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      .then(response => response.text())
+      .then(data => {
+        console.log(data);
+        alert('Form submitted successfully!');
+      })
+      .catch(error => {
+        console.error('Error submitting form:', error);
+        alert('An error occurred. Please try again.');
+      });
+    }
+  </script>
+</body>
+
+</html>
